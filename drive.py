@@ -23,9 +23,6 @@ app = Flask(__name__)
 model = None
 prev_image_array = None
 
-# Applying CLAHE transformation
-clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8,8))
-
 
 class SimplePIController:
     def __init__(self, Kp, Ki):
