@@ -2,7 +2,7 @@
 
 The goal of this project is to predict the steering angles from the center camera images of the car.
 
-##Steps of the Project:
+## Steps of the Project:
 * Use the simulator to generate Images(Center, Left and Right) Vs (Steering, Throttle, Brake And Speed).
 * Perform some basic Pre-Processing.
 * Build a model that predict's the steering angle by taking the image as the input.
@@ -11,7 +11,7 @@ The goal of this project is to predict the steering angles from the center camer
 
 ## Rubic Points
 ***
-####Required Files:
+#### Required Files:
 **Are all required files submitted?:** 
 The submission includes all the required files:
 * model.py
@@ -21,15 +21,15 @@ The submission includes all the required files:
 * track2.mp4
 
 ***
-####Quality of Code:
-** Is the code functional?:**
+#### Quality of Code:
+**Is the code functional?:**
 The vehicle can driven autonomusly around the track using the command :
 ```sh
 python drive.py model.h5
 ```
 And then the simulator can be opened and then tested around Track 1 and Track 2.
 
-** Is the code usable and readable?:** 
+**Is the code usable and readable?:** 
 The model can be trained using the command:
 ```sh
 python model.py
@@ -39,25 +39,25 @@ And then the model can be evluated using the command:
 python drive.py model.h5
 ```
 ***
-####Model Architecture and Training Stratergy:
-** Has an appropriate model architecture been employed for the task?:**
+#### Model Architecture and Training Stratergy:
+**Has an appropriate model architecture been employed for the task?:**
 The model I used contains 3 Convolution Layers of Filter Size: 5x5 and Stride: 2x2 ,2 Convolution Layers of Filter Szie: 3x3 and Stride: 2x2. After the convolution layers there are 4 Fully Connected Layers with dropout in between them.
 
 
-** Has an attempt been made to reduce overfitting of the model?**
+**Has an attempt been made to reduce overfitting of the model?**
 The model incorporates dropout in the fully connected layers and normalization [before feeding the image into the  Convolution Neural Network] in order to reduce overfitting. And also the data has been split into Training and Validation set in order to check that the model genralizes the data and dose not overfit or underfit.
 
 
 **Have the model parameters been tuned appropriately?** 
 Yes, The model parameters have been tuned appropritely so that the model genralizes well on the dataset and dosent overfir or underfit.
 
-** Is the training data chosen appropriately?** 
+**Is the training data chosen appropriately?** 
 Yes, the training data has been chosen appropriately in order for the model to drive only on the road.
 
 ***
 #### Architecture and Training Documentation
 
-** Solution Design Approach:**
+**Solution Design Approach:**
 
 * I used the Convolution Neural Network similar to Nvidia's [End to End Learning for Self-Driving Cars](https://arxiv.org/abs/1604.07316) Network. The only main difference is that the model used has incorporated dropout between the fully connected layer's. 
 * Without dropout the model overfits the training data producing a much larger error in Validation set than in training set.
@@ -65,7 +65,7 @@ Yes, the training data has been chosen appropriately in order for the model to d
 * Training only on the data form Track 1 did not genralize well around sharp turns as most of the track contains smooth curves.
 * Training it on Track 2 and then introducing data from Track 1 made the model genralize much better for both the tracks.
 
-** Final Model Architecture:**
+**Final Model Architecture:**
 
 Model Architecture:
 
@@ -95,7 +95,7 @@ Model Architecture:
 | Fully Connected 4 | 100 fully connected to 1 [Output] |
 
 
-** Creation of Training Set and Training Process:**
+**Creation of Training Set and Training Process:**
 
 * First I collected data from Track 2. [Three laps normally and one lap in the reverse direction]
 * And then used Track 1 to collect data. [Three laps normally and then one lap in the reverse direction]
